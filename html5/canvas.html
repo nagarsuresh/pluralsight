@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script type="text/javascript" src="modernizr/modernizr-custom.js"></script>
+    <script type="text/javascript" src="jquery/jquery-2.2.3.min.js"></script>
+
+    <script>
+        function onLoad(){
+            var canvas = document.getElementById('canvas');
+            var context = null;
+            
+            // if(Modernizr.canvas){
+                context = canvas.getContext('2d');
+                
+                context.fillStyle = 'rgb(500,0, 0)';
+                context.fillRect(50,50,100,100);
+                
+                context.fillStyle = 'rgba(0,0, 500, 0.5)';
+                context.fillRect(80,80,100,100);
+                
+                context.clearRect(115,115,20,20);
+                
+                context.strokeStyle = 'rgb(51,153,0)';
+                context.lineWidth = 6;
+                context.strokeRect(115, 115, 20, 20);
+                
+                
+                
+                
+            // }
+            
+            
+            var canvas1 = document.getElementById('canvas1');
+            context = canvas1.getContext('2d');
+            
+            var g1 = context.createRadialGradient(160, 120, 0, 320, 220, 300);
+            g1.addColorStop(0, '#ffffff');
+            g1.addColorStop(1, '#999999');
+            
+            context.lineWidth = 0;
+            context.strokeStyle = '#000000';
+            context.fillStyle = g1;
+            context.beginPath();
+            context.arc(180, 180, 160, 0, Math.PI *2, true )
+            
+            
+            
+            
+            context.fill();
+            
+            
+            
+    }
+    </script>
+
+
+
+
+</head>
+
+<body onload="onLoad()">
+
+
+    <canvas id="canvas" width="500" height="500" style="float:left"></canvas>
+
+
+    <canvas id="canvas1" width="500" height="500" style="float:right"></canvas>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Magnifier</title>
+
+
+    <script type="text/javascript" src="modernizr/modernizr-custom.js"></script>
+    <script type="text/javascript" src="jquery/jquery-2.2.3.min.js"></script>
+
+    <script>
+        function run(){
+            var canvas  = document.getElementById('canvas'),
+            img = new Image(),
+            context = null,
+            dataUrl = null,
+            isMagnified = false,
+            
+            
+            init = function(){
+                img.onload = function(){
+                    context.drawImage(img, 0, 0);
+                    dataUrl = canvas.toDataURL();
+                }
+                img.src = 'images/img1.jpg';
+                isMagnified = false;
+            },
+            
+            
+            magnify = function(){
+                context.save();
+                context.lineWidth = 10;
+                context.shadowColor = '#000';
+                context.shadowBlur = 15;
+                context.shadowOffsetX = 5;
+                context.shadowOffsetY = 5;
+                context.save();
+                
+                context.beginPath();
+                context.moveTo(240, 240);
+                context.lineCap = 'round';
+                context.lineWidth = 30;
+                context.lineTo(295,295);
+                context.stroke();
+                
+                context.beginPath();
+                context.arc(180, 160, 115, 0 , Math.PI*2, true);
+                context.clip();
+                
+                var magnified = new Image();
+                magnified.src = dataUrl;
+                
+                context.scale(2.5, 2.5);
+                context.drawImage(magnified, -90, -50);
+                
+                context.restore();
+                
+                context.arc(180, 160, 115, 0, Math.PI*2, true);
+                context.stroke();
+                context.restore();
+                
+                isMagnified = true;
+                
+                
+            }
+            
+            
+            
+            if(Modernizr.canvas){
+                context = canvas.getContext('2d');
+                
+                
+                init();
+                
+                $('canvas').click(function(){
+                    if(isMagnified){
+                        init();
+                    } else {
+                        magnify();
+                    }
+                })
+                
+                
+            }
+            
+            
+            
+            
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <canvas width="500" height="500" id="canvas"></canvas>
+
+    <button onclick="run()">Run</button>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Forms</title>
+    <style>
+        input:valid + .invalid {
+            visibility: hidden;
+        }
+        
+        input:invalid + .invalid {
+            visibility: visible;
+        }
+        
+        input:required {
+            border: 2px solid red;
+        }
+        
+        .invalid {
+            font-size: 0.8em;
+        }
+        
+        input:valid {
+            border: 2px solid #ccc;
+        }
+        
+        input {
+            margin: 10px 10px 0px 10px;
+        }
+        
+        .result {
+            display: table;
+            font-size: 2em;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        function onSubmit(){
+            debugger;
+        }
+        
+        function doSum(){
+            var num1 = document.getElementById('number1');
+            var num2 = document.getElementById('number2');
+            
+            var result = document.getElementById('Result');
+            result.innerText= parseInt(num1.value) + parseInt(num2.value);
+            
+        }
+        
+        
+        function doSubtract(){
+            var num1 = document.getElementById('number3');
+            var num2 = document.getElementById('number4');
+            
+            var result = document.getElementById('Result1');
+            result.innerText= parseInt(num1.value) - parseInt(num2.value);
+        }
+        
+        function sliderChanged(){
+            var slider = document.getElementById("slider");
+            var span = document.getElementById("sliderValue");
+            span.innerText = slider.value;
+        }
+    </script>
+
+</head>
+
+<body>
+    <main>
+        <form onsubmit="onSubmit()">
+            <fieldset>
+                <h1>HTML 5 Form</h1>
+                <input type="text" id="username" name="username" pattern="[a-zA-Z ]{5,}" placeholder="UserName" maxlength="30" required />
+                <div class="invalid">
+                    User name should be alphabetic
+                </div>
+
+                <input type="email" id="email" name="email" placeholder="Email Required" required/>
+                <div class="invalid">
+                    Email id is required and should have only one @ sign.
+                </div>
+                <button type="submit">Submit</button>
+            </fieldset>
+
+        </form>
+
+
+        <form>
+
+            <fieldset title="Add Two number">
+                <h1>Add two numbers</h1>
+                <label for="number1">Enter Number 1</label>
+                <input type="number" name="number1" id="number1" />
+
+                <label for="number1">Enter Number 2</label>
+                <input type="number" name="number2" id="number2" />
+
+                <span id="Result" class="result"></span>
+
+
+                <button type="button" onclick="doSum()">Add</button>
+            </fieldset>
+
+        </form>
+
+        <form>
+
+            <fieldset>
+                <h1>Subtract two numbers</h1>
+                <label for="number1">Enter Number 1</label>
+                <input type="number" name="number1" id="number3" />
+
+                <label for="number1">Enter Number 2</label>
+                <input type="number" name="number2" id="number4" />
+
+                <span id="Result1" class="result"></span>
+
+
+                <button type="button" onclick="doSubtract()">Subtract</button>
+            </fieldset>
+
+        </form>
+
+
+        <input type="range" style="width:600px" oninput="sliderChanged()" id="slider" />
+        <span id="sliderValue" />
+
+    </main>
+
+
+
+
+
+
+</body>
+
+</html>
