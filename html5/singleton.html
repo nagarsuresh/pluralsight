@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Tests</title>
+
+    <script>
+        var carSingleton = function(){
+            var Car = function(model, make){
+                this.model = model;
+                this.make = make;
+            }
+            var instance = new Car("Toyota", "Camry");
+            
+            return {
+                getInstance : function(){
+                    return instance;
+                }
+            }
+        }();
+        
+        var car = carSingleton.getInstance();
+        var car2 = carSingleton.getInstance();
+        debugger;
+        
+    </script>
+
+
+</head>
+
+<body>
+
+
+</body>
+
+</html>
