@@ -10,17 +10,20 @@
 
 
 .box{
-    border: 50px solid;
+    border: 50px double;
     display: inline-block;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     position: relative;
     border-color: red blue green orange;
-    -webkit-animation: spin 3s ease-in-out infinite alternate;
-    
+    -webkit-animation: spin 10s ease-in-out infinite alternate;
 }
+
 @-webkit-keyframes spin{
     0% {-webkit-transform: rotate(0deg); left: 0px; }
-    100% {-webkit-transform: rotate(1500deg); left: 1600px;}
+    25% {-webkit-transform: rotate(-720deg); left : 1500px; top: 0px; }
+    50% {-webkit-transform: rotate(-1080deg); left : 1500px; top: 500px; }
+    75% {-webkit-transform: rotate(-1800deg); left : 0px; top: 500px; }
+    100% {-webkit-transform: rotate(-2160deg); left: 0px; top: 0px}
 }
