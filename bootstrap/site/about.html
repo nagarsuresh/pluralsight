@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 3 Tricks.</title>
+
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap3/css/blue-theme-bootstrap.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin-top: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="container">
+        <div id="menu" class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target=".my-menu">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <div id="logo">
+                    <a href="."><h4>My First bootstrap</a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse my-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav"><a href="index.html">Home</a></li>
+                    <li class="nav active"><a href="about.html">About</a></li>
+                    <li class="nav"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="body" class="container">
+
+
+        <h2>Tables</h2>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+
+                <div class="table-responsive">
+
+                    <table class="table table-striped table-bordered table-hover table-condensed">
+
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Eve</td>
+                                <td>Jackson Jackson JacksonJackson Jackson Jackson Jackson</td>
+                                <td>94</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Adam</td>
+                                <td>Johnson</td>
+                                <td>67</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Jill</td>
+                                <td>Smith</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Jill</td>
+                                <td>Smith</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Jill</td>
+                                <td>Smith</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Jill</td>
+                                <td>Smith</td>
+                                <td>50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2>List group and List group items</h2>
+
+
+        <ul class="list-group col-md-6  col-sm-6">
+            <li class="list-group-item">First <span class="badge">10</span></li>
+            <li class="list-group-item active">Second</li>
+            <li class="list-group-item">Third <span class="badge"><span class="glyphicon glyphicon-earphone"></span></span>
+            </li>
+            <li class="list-group-item">Fourth</li>
+            <li class="list-group-item">Fifth</li>
+        </ul>
+
+    </section>
+
+    <hr/>
+    <footer id="footer" class="container">Footer</footer>
+</body>
+
+
+<script src="../../html5/jquery/jquery-2.2.3.min.js"></script>
+<script src="../bootstrap3/js/bootstrap.js"></script>
+
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Model Test</title>
+    <link href="bootstrap2/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap2/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <button href="#myModal" class="btn btn-primary btn-large" data-toggle="modal">Lanuch a Modal Dialog</button>
+    </div>
+
+
+    <div id="myModal" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="progress progress-striped">
+                <div class="bar" id="doitprogress"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary" id="save">Save</button>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+<script src="../html5/jquery/jquery-2.2.3.min.js"></script>
+<script src="bootstrap2/js/bootstrap.js"></script>
+
+
+<script>
+    $(function(){
+        var progress = $('#doitprogress');
+        var width = 0;
+        
+        $('#save').click(function(){
+            var update = function(){
+                width = width + 10;
+                progress.width(width+'%');
+                if(width >= 100){
+                    width = -10;
+                }
+                setTimeout(update, 500);
+            }
+        
+            update();
+        });
+        
+    });
+
+</script>
+
+</html>

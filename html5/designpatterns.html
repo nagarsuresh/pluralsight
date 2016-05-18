@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Design Patterns</title>
+
+    <script>
+        var f = function(){
+            console.log("Value of this "+this);
+            
+            this.val = "this is val";
+            
+            return {};
+            
+        }
+        
+        
+        var Singleton = (function(){
+            
+            var instance = null;
+            var getInstance = function(){
+                if(instance == null){
+                    instance = new Number(Math.random());         
+                }
+                return instance;
+            }
+            
+            return {
+                getInstance : getInstance
+            }
+            
+        })();
+        
+        var s1 = Singleton.getInstance();
+        console.log(s1);
+        var s2 = Singleton.getInstance();
+        console.log(s2);
+        console.log(s1 === s2);
+        
+        var s3 = Object.create(Singleton);
+        console.log(s3);
+        
+        
+        
+        var f1 = new f();
+        console.log(f1.val);
+        console.log(f1.v);
+        
+        
+        var f2 = f();
+        console.log(f2.val);
+    </script>
+
+
+
+</head>
+
+<body>
+    Check console buddy!
+    
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact US</title>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap3/css/blue-theme-bootstrap.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin-top: 70px;
+        }
+    </style>
+
+    <script>
+        function doSubmit(){
+            alert("Submitting");
+        }
+    </script>
+</head>
+
+<body>
+    <header id="header" class="container">
+        <div id="menu" class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target=".my-menu">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <div id="logo">
+                    <a href="."><h4>My First bootstrap</a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse my-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav active"><a href="index.html">Home</a></li>
+                    <li class="nav "><a href="about.html">About</a></li>
+                    <li class="nav"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="body" class="container">
+        <h2>Contact US</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <form action="#" class="form-horizontal" onsubmit="doSubmit()" id="form1">
+                    <div class="form-group">
+                        <label for="name" class="control-label col-md-2">Your Name</label>
+                        <div class="col-md-10">
+                            <input type="text" name="name" class="form-control" placeholder="your name"  required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="control-label col-md-2">Email</label>
+                        <div class="col-md-10">
+                            <input type="email" name="email" class="form-control" placeholder="your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason" class="control-label col-md-2">Reason</label>
+                        <div class="col-md-10">
+                            <select name="reason" class="form-control">
+                            <option value="">Adoration</option>
+                            <option value="">Complaint</option>
+                            <option value="">I am lost</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="control-label col-md-2">Message</label>
+                        <div class="col-md-10">
+                            <textarea name="message" id="" cols="40" rows="6" class="form-control" placeholder="your message"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-2">
+                            <input type="submit" value="button" class="btn btn-success" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <h3>Address</h3>
+        <div>
+            <address>
+                        620 Iris Avenue <br>
+                        #110 <br>
+                        Sunnyvale CA <br>
+                        94086
+            </address>
+            <address>
+                nagar.suresh@gmail.com
+            </address>
+        </div>
+
+
+
+
+    </section>
+
+
+
+    <footer id="footer" class="container">Footer</footer>
+
+</body>
+
+
+<script src="../../html5/jquery/jquery-2.2.3.min.js"></script>
+<script src="../bootstrap3/js/bootstrap.js"></script>
+
+</html>
