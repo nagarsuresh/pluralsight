@@ -11,7 +11,7 @@ var BinaryTree = function () {
     var root = null;
 
 
-    this.add = function (value) {
+    var add = function (value) {
         if (root == null) {
             root = new Node(value);
         } else {
@@ -40,38 +40,28 @@ var BinaryTree = function () {
         };
     }
 
-    this.traverse = function () {
-        this.printTree(root);
-    }
-
-    this.printTree = function (node) {
+    var printTree = function (node) {
         if (node === null) {
             return;
         }
 
-        this.printTree(node.left);
+        printTree(node.left);
         console.log(node.value);
-        this.printTree(node.right);
+        printTree(node.right);
     }
 
-    this.getHeight = function () {
-        if (root == null) {
-            return 0;
-        }
-
-        var height = this.maxHeight(root);
-
-        return height;
+    var traverse = function () {
+        printTree(root);
     }
 
-    this.maxHeight = function (node) {
+    var maxHeight = function (node) {
         if (node == null) {
             return 0;
         }
 
         console.log("At Node " + node.value);
-        var leftHeight = this.maxHeight(node.left);
-        var rightHeight = this.maxHeight(node.right);
+        var leftHeight = maxHeight(node.left);
+        var rightHeight = maxHeight(node.right);
         console.log("Left " + leftHeight + " Right " + rightHeight);
 
 
@@ -84,6 +74,23 @@ var BinaryTree = function () {
 
         console.log("Height at " + node.value + " is " + height);
         return height;
+    }
+
+    var getHeight = function () {
+        if (root == null) {
+            return 0;
+        }
+
+        var height = maxHeight(root);
+
+        return height;
+    }
+
+
+    return {
+        add: add,
+        getHeight: getHeight,
+        traverse: traverse
     }
 }
 
