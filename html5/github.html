@@ -12,13 +12,19 @@
                 debugger;
             });
     
-    }
+        }
+        
+        function hitGoogle(){
+            $.post('https://www.google.com/recaptcha/api2/userverify?k=6LcUnCATAAAAAGOVEveKIF1FBqijvwPchdQb1HEW', function(data){
+               debugger; 
+            });
+        }
     </script>
 </head>
 
 <body onload="loadIt()">
 
-
+    <button onclick="hitGoogle()">Hit Google </button>
 </body>
 
 </html>
