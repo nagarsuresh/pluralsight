@@ -5,8 +5,13 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
+<<<<<<< HEAD
             "program": "${workspaceRoot}/nodejs/binarytree.js",
             "stopOnEntry": false,
+=======
+            "program": "${workspaceRoot}/nodejs/express/simple.js",
+            "stopOnEntry": true,
+>>>>>>> 063d8ab5518947a5847a0063d62c98ca0ecfed71
             "args": [],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
