@@ -93,7 +93,7 @@ var BinaryTree = function () {
         };
 
         result = findParallelNodeInternal(root, value, result);
-        console.log(result.path);
+        // console.log(result.path);
         if (result.found === true) {
             return getFromTree(root2, result.path);
         }
