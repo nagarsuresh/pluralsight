@@ -38,6 +38,35 @@ console.log(isEmpty({}));
 console.log("[" + "   to be trimmed   ".replace(/\s+/g, "") + "]");
 
 
-console.log(Math.pow(1.01,370));
+console.log(Math.pow(1.01, 370));
 
 
+
+
+function closure() {
+    var i = 0;
+
+
+    for (i = 0; i < 5; i++) {
+        setTimeout(function (i) {
+            console.log("i:" + i);
+        }.bind({}, i), 200);
+    }
+}
+
+
+// closure();
+
+
+function closure2() {
+    var i = 0;
+    for (i = 0; i < 5; i++) {
+        try { throw i } catch (i) {
+            setTimeout(function () {
+                console.log("i:" + i);
+            }, 200);
+        }
+    }
+}
+
+closure2();
