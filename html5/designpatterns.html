@@ -11,7 +11,9 @@
             
             this.val = "this is val";
             
-            return {};
+            return {
+                val : this.val
+            };
             
         }
         
@@ -33,23 +35,23 @@
         })();
         
         var s1 = Singleton.getInstance();
-        console.log(s1);
+        console.log("s1  "+s1);
         var s2 = Singleton.getInstance();
-        console.log(s2);
+        console.log("s2  "+s2);
         console.log(s1 === s2);
         
         var s3 = Object.create(Singleton);
-        console.log(s3);
+        console.log("s3  "+s3.getInstance());
         
         
         
         var f1 = new f();
-        console.log(f1.val);
-        console.log(f1.v);
-        
-        
         var f2 = f();
-        console.log(f2.val);
+
+        console.log("f1 - "+f1.val);
+        console.log("f2 - "+f2.val);        
+        
+        
     </script>
 
 
@@ -58,7 +60,7 @@
 
 <body>
     Check console buddy!
-    
+
 </body>
 
 </html>
