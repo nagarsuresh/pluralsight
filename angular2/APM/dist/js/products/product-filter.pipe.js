@@ -13,7 +13,7 @@ var ProductFilterPipe = (function () {
     function ProductFilterPipe() {
     }
     ProductFilterPipe.prototype.transform = function (products, args) {
-        var filter = args[0] ? args[0].toLocaleLowerCase() : null;
+        var filter = args;
         if (filter) {
             return products.filter(function (product) {
                 return product.productName.toLocaleLowerCase().indexOf(filter) != -1;

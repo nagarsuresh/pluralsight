@@ -24,21 +24,21 @@ function isEmpty(value) {
         (Array.isArray(value) && value.length === 0);
 }
 
-console.log(isEmpty(null));
-console.log(isEmpty(undefined));
-console.log(isEmpty('   '));
-console.log(isEmpty(""));
-console.log(isEmpty([]));
-console.log(isEmpty([2]));
-console.log(isEmpty("test"));
-console.log(isEmpty({}));
+// console.log(isEmpty(null));
+// console.log(isEmpty(undefined));
+// console.log(isEmpty('   '));
+// console.log(isEmpty(""));
+// console.log(isEmpty([]));
+// console.log(isEmpty([2]));
+// console.log(isEmpty("test"));
+// console.log(isEmpty({}));
 
 
 
-console.log("[" + "   to be trimmed   ".replace(/\s+/g, "") + "]");
+// console.log("[" + "   to be trimmed   ".replace(/\s+/g, "") + "]");
 
 
-console.log(Math.pow(1.01, 370));
+// console.log(Math.pow(1.01, 370));
 
 
 
@@ -55,7 +55,7 @@ function closure() {
 }
 
 
-// closure();
+closure();
 
 
 function closure2() {
@@ -69,4 +69,18 @@ function closure2() {
     }
 }
 
-closure2();
+// closure2();
+
+
+function closure3() {
+    "use strict";
+    for (let i = 0; i < 5; i++) {
+        setTimeout(function () {
+            console.log("-->" + i)
+        }, 200);
+    }
+}
+
+closure3();
+
+
