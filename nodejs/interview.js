@@ -1,6 +1,7 @@
 //variable hoisting
+var x = 20;
 function f1() {
-    console.log("x is " + x);
+    console.log("x is ---> " + x);
     var x = 10;
 }
 

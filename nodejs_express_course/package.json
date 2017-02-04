@@ -1,0 +1,15 @@
+{
+    "name": "NodeJSExpressCourse",
+    "version": "1.0.0",
+    "description": "pluralsight course",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo : 'Error: Nothing specified' && exit 1",
+        "start": "node app.js"
+    },
+    "author": "Suresh Nagar",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.13.3"
+    }
+}
