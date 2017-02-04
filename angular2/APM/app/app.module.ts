@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { DashboardModule } from './dashboard/dashboard.module';
 
-import { AppComponent }  from './app.component';
-import { ProductListComponent }  from './products/product-list.component';
-import {ProductFilterPipe} from './products/product-filter.pipe'
+import { AppComponent } from './app.component';
+import { ProductListComponent } from './products/product-list.component';
+import { ProductFilterPipe } from './products/product-filter.pipe'
 
 @NgModule({
-  imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, ProductListComponent,  ProductFilterPipe],
-  bootstrap: [ AppComponent ]
-  
+  imports: [BrowserModule, FormsModule, DashboardModule],
+  declarations: [AppComponent, ProductListComponent, ProductFilterPipe],
+  bootstrap: [AppComponent]
+
 })
 export class AppModule { }

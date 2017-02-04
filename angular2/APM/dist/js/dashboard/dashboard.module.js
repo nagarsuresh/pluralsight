@@ -9,24 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var dashboard_module_1 = require('./dashboard/dashboard.module');
-var app_component_1 = require('./app.component');
-var product_list_component_1 = require('./products/product-list.component');
-var product_filter_pipe_1 = require('./products/product-filter.pipe');
-var AppModule = (function () {
-    function AppModule() {
+var dashboard_component_1 = require('./dashboard.component');
+var dashboard_service_1 = require('./dashboard.service');
+var DashboardModule = (function () {
+    function DashboardModule() {
     }
-    AppModule = __decorate([
+    DashboardModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, dashboard_module_1.DashboardModule],
-            declarations: [app_component_1.AppComponent, product_list_component_1.ProductListComponent, product_filter_pipe_1.ProductFilterPipe],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [],
+            declarations: [
+                dashboard_component_1.DashboardComponent
+            ],
+            providers: [
+                dashboard_service_1.DashboardService
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], DashboardModule);
+    return DashboardModule;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.DashboardModule = DashboardModule;
+//# sourceMappingURL=dashboard.module.js.map
