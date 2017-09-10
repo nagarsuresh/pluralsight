@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-block" *ngIf="processing">
+    <div class="progress top loop">
+      <progress></progress>
+    </div>
+  </div>
+
+  <div class="card-header">
+    {{displayName}}
+    <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg" *ngIf="description">
+      <clr-icon shape="info-circle" class="is-info is-solid"></clr-icon>
+      <span class="tooltip-content">{{description}}</span>
+    </a>
+
+    <div class="pull-right card-text" *ngIf="totalCount != -1">{{totalCount}}
+      <span *ngIf="id == 'publish_per_host'">Hosts</span>
+      <span *ngIf="id == 'logical_switch_status'">Logical Switch</span>
+      <span *ngIf="id == 'host_status'">Clusters</span>
+    </div>
+  </div>
+  <div class="card-block">
+    <h6 *ngIf="message">{{message}}</h6>
+
+    <form>
+      <div *ngFor="let item of reportData.seriesData">
+        <div class="form-group" *ngIf="item.count != 0">
+          <label>
+            <clr-icon shape="warning" class="is-warning is-solid" *ngIf="item.severity == 'warning'"></clr-icon>
+            <clr-icon shape="error" class="is-danger is-solid" *ngIf="item.severity == 'error'"></clr-icon>
+            {{item.displayText}}
+          </label>
+          <a href="javascript:void(0)" class="label label-info" (click)="showErrorDetails(item)">{{item.count}}</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <clr-modal *ngIf="drilldownOpened" [(clrModalOpen)]="drilldownOpened" [clrModalSize]="'lg'">
+    <h3 class="modal-title">{{displayName}} - {{drillDownDataMetadata.label}}</h3>
+
+    <div class="modal-body">
+      <app-drilldown-grid [drillDownDataMetadata]="drillDownDataMetadata"></app-drilldown-grid>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="drilldownOpened = false">Ok</button>
+    </div>
+
+  </clr-modal>

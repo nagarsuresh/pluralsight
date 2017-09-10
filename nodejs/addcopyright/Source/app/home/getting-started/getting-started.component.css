@@ -1,0 +1,7 @@
+.getting_started_image{
+    background-image: url(assets/images/networking_security_components.png);
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    width: 310px;
+    height: 350px;
+}

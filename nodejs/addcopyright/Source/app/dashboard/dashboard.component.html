@@ -1,0 +1,20 @@
+<div [ngBusy]="{busy:metadataListSubscription, message:'Loading...', wraperClass:'spinner'}"></div>
+
+
+<vcns-selector (nsxManagerSelected)="onNsxManagerAvailable($event)"></vcns-selector>
+
+
+<div class="card-columns card-columns-2">
+  <div *ngFor="let item of reportMetadataKeys()">
+
+    <app-aggregate-report *ngIf="getReportType(item) == 'aggregate_count'" [metadata]="reportMetadata[item]" [selectedNSXManager]="selectedNSXManager">
+    </app-aggregate-report>
+
+    <app-pernode-report *ngIf="getReportType(item) == 'per_node'" [metadata]="reportMetadata[item]" [selectedNSXManager]="selectedNSXManager">
+    </app-pernode-report>
+
+    <app-basic-report *ngIf="getReportType(item) == 'basic'" [metadata]="reportMetadata[item]" [selectedNSXManager]="selectedNSXManager">
+    </app-basic-report>
+  </div>
+
+</div>

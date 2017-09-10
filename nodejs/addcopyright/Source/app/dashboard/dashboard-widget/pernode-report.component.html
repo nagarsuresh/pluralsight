@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-block" *ngIf="processing">
+    <div class="progress top loop">
+       <progress></progress>
+    </div>
+  </div>
+  <div class="card-header">
+    {{displayName}}
+  </div>
+  <div class="card-block">
+    <form class="compact">
+      <div class="form-block">
+        <div class="form-group" *ngFor="let node of nodesList">
+          <label>{{node.label}}: 
+            <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg" *ngIf="node.description">
+              <clr-icon shape="info-circle" class="is-info is-solid"></clr-icon>
+              <span class="tooltip-content">{{node.description}}</span>
+            </a>
+          </label>
+          <label>&nbsp;
+                <a *ngFor="let item of node.statusList"  href="javascript:void(0)" 
+                  class="tooltip tooltip-lg tooltip-right node" role="tooltip" aria-haspopup="true">
+                  <span class="badge badge-success"></span>
+                  <span class="tooltip-content">
+                    <h4 style="color:white">{{item.nodeName}} - Detalis</h4>
+                    <ul><li *ngFor="let msg of item.statusList">{{msg.message}}</li></ul>
+                  </span>
+                </a>
+
+                <span *ngIf="!processing && !node.statusList">There are no records.</span>
+              
+          </label>
+
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>

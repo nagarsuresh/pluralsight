@@ -1,7 +1,6 @@
 var fs = require('fs');
 
 var data = [];
-var start = [1, 1, 1, 1];
 function generateIps() {
     for (var i = 1; i < 2; i++) {
         for (var j = 1; j < 2; j++) {
@@ -16,5 +15,5 @@ function generateIps() {
 
 
 generateIps();
-console.log(data.length);
+console.log("Generated "+data.length+" IPs");
 fs.writeFile("ips.txt", data.join(","));

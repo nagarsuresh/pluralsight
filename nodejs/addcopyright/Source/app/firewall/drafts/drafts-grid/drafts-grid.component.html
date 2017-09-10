@@ -1,0 +1,55 @@
+<div class="button_group">
+    <button class="btn btn-link tooltip tooltip-xs" role="tooltip">
+        <clr-icon shape="upload" class="icon-color-info"></clr-icon>
+        <span class="tooltip-content">Import12121</span>
+    </button>
+    <button class="btn btn-link tooltip tooltip-xs" role="tooltip" (click)="onEditClick()" [disabled]="selectedRows.length != 1">
+        <clr-icon shape="edit" class="icon-color-info"></clr-icon>
+        <span class="tooltip-content">Edit</span>
+    </button>
+    <button class="btn btn-link tooltip tooltip-xs" role="tooltip" (click)="onDeleteClick()" [disabled]="selectedRows.length != 1">
+        <clr-icon shape="remove" class="icon-color-warning"></clr-icon>
+        <span class="tooltip-content">Delete</span>
+    </button>
+    <button class="btn btn-link tooltip tooltip-xs" role="tooltip" [disabled]="selectedRows.length != 1">
+        <clr-icon shape="download" class="icon-color-info"></clr-icon>
+        <span class="tooltip-content">Export</span>
+    </button>
+</div>
+
+<clr-datagrid [(clrDgSelected)]="selectedRows">
+    <!--<clr-dg-placeholder>No saved firewall configuration available!</clr-dg-placeholder>-->
+    <clr-dg-column>No</clr-dg-column>
+    <clr-dg-column [clrDgField]="'name'">Configuration Name
+        <clr-dg-filter [clrDgFilter]="myFilter">
+            <label for="">Name:</label>
+            <input type="text">
+        </clr-dg-filter>
+    </clr-dg-column>
+    <clr-dg-column [clrDgField]="'user'">Saved By</clr-dg-column>
+    <clr-dg-column [clrDgField]="'timestamp'">Time</clr-dg-column>
+    <clr-dg-column [clrDgField]="'description'">Description</clr-dg-column>
+    <clr-dg-column [clrDgField]="'preserve'">Preserve</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let draft of draftsList; let i=index;" [clrDgItem]="draft" (click)="onRowSelection(draft)">
+        <clr-dg-cell>{{i+1}}</clr-dg-cell>
+        <clr-dg-cell>{{draft.name}}</clr-dg-cell>
+        <clr-dg-cell>{{draft.user}}</clr-dg-cell>
+        <clr-dg-cell>{{draft.timestamp | date:'yMdjm'}}</clr-dg-cell>
+        <clr-dg-cell>{{draft.description}}</clr-dg-cell>
+        <clr-dg-cell>{{draft.preserve?'Yes':'No'}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{draftsList.length}} Configurations</clr-dg-footer>
+</clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="showConfirmDelete" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">Delete Configurarion</h3>
+    <div class="modal-body">
+        <p>Delete selected firewall configuration {{selectedDraft?.name}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="showConfirmDelete = false">NO</button>
+        <button type="button" class="btn btn-primary" (click)="deleteSelectedDraft()">YES</button>
+    </div>
+</clr-modal>

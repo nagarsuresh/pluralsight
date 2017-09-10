@@ -1,0 +1,96 @@
+<div [ngClass]="{'webclient' : webclient}">
+  <span class="hide-in-webclient">
+  <sd-toolbar></sd-toolbar>
+</span>
+
+  <div class="main-container">
+    <div class="content-container">
+      <div class="content-area">
+
+        <!--global error display-->
+        <div class="alert alert-danger" *ngIf="globalErrorMsg">
+          <div class="alert-item">
+            <span class="alert-text"> 
+              {{globalErrorMsg}}
+            </span>
+          </div>
+          <div class="alert-action">
+            <button type="button" class="close" aria-label="Close" (click)="globalErrorMsg=null">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+
+
+        <router-outlet></router-outlet>
+      </div>
+
+      <nav class="hide-in-webclient sidenav">
+        <section class="sidenav-content">
+          <!--main links-->
+          <a [routerLinkActive]="'active'" class="nav-link" routerLink='/home'>
+            <img src="assets/images/vShield_launch_icon16.png" /> NSX Home
+          </a>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/dashboard'>
+            <img src="assets/images/dashboard_16x16.png" /> Dashboard
+          </div>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/installation'>
+            <img src="assets/images/install16x16.png" /> Installation
+          </div>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/logicalswitches'>
+            <img src="assets/images/globalLogicalSwitches.png" /> Logical Switches
+          </div>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/edge'>
+            <img src="assets/images/edge16x16.png" /> NSX Edges
+          </div>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/firewall'>
+            <img src="assets/images/FirewallRules.png" /> Firewall
+          </div>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/spoofguard'>
+            <img src="assets/images/spoofguard16x16.png" /> SpoofGuard
+          </div>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/servicedefinitions'>
+            <img src="assets/images/service_definition.png" /> Service Definitions
+          </div>
+          <div [routerLinkActive]="['active']" class="nav-link" routerLink='/servicecomposer'>
+            <img src="assets/images/securityPolicy.png" /> Service Composer
+          </div>
+
+          <!--Tools section-->
+          <section class="nav-group collapsible">
+            <input id="tools" type="checkbox">
+            <label for="tools">Tools</label>
+            <ul class="nav-list">
+              <li [routerLinkActive]="['active']" class="nav-link" routerLink='/flowmonitoring'>
+                <img src="assets/images/flowmon16x16.png" /> Flow Monitoring
+              </li>
+              <li [routerLinkActive]="['active']" class="nav-link" routerLink='/activitymonitoring'>
+                <img src="assets/images/activitymon16x16.png" /> Activity Monitoring
+              </li>
+              <li [routerLinkActive]="['active']" class="nav-link" routerLink='/endpointmonitoring'>
+                <img src="assets/images/activitymon16x16.png" /> Endpoint Monitoring
+              </li>
+              <li [routerLinkActive]="['active']" class="nav-link" routerLink='/traceflow'>
+                <img src="assets/images/traceflow.png" /> Traceflow
+              </li>
+            </ul>
+          </section>
+
+          <!--Networking & Security Inventory-->
+          <section class="nav-group collapsible">
+            <input id="nsxmanager" type="checkbox">
+            <label for="nsxmanager">Networking &amp; Security Inventory</label>
+            <ul class="nav-list">
+              <li [routerLinkActive]="['active']" class="nav-link" routerLink='/nsxmanagers'>
+                <img src="assets/images/vShield_launch_icon16.png" /> NSX Managers
+              </li>
+
+            </ul>
+          </section>
+
+
+        </section>
+      </nav>
+    </div>
+  </div>
+</div>

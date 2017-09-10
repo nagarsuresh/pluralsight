@@ -1,0 +1,7 @@
+.button_group{
+    border: 1px solid #747474;
+    background-color: #FAFAFA;
+}
+.button_group .btn {
+    min-width: auto;
+}

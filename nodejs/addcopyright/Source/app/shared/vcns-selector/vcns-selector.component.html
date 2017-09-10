@@ -1,0 +1,11 @@
+<div class="vcns_selector">
+  <div class="row">
+    <label for="nsxmanagersList">NSX Manager : </label>
+    <div class="select">
+      <select id="nsxmanagersList" [(ngModel)]="selectedNsxManager" (change)="onNsxManagerChange($event)"> 
+        <option *ngFor="let vsmInfoDto of vsmInfoDtos" [ngValue]="vsmInfoDto">{{getServerListLabel(vsmInfoDto)}}</option>
+    </select>
+    </div>
+    <div class="spinner spinner-sm" *ngIf="fetching"></div>
+  </div>
+</div>
