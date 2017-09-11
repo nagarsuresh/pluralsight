@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { DashboardModule } from './dashboard/dashboard.module';
 
-import { AppComponent }  from './app.component';
-import { ProductListComponent }  from './products/product-list.component';
+import { AppComponent } from './app.component';
+import { ProductListComponent } from './products/product-list.component';
+import { ProductFilterPipe } from './products/product-filter.pipe'
+
+
 import { ProductDetail }  from './products/product-detail.component';
 import { StarComponent }  from './shared/star.component';
-import {ProductFilterPipe} from './products/product-filter.pipe'
 import {ProductService} from './products/product.service';
 import { HttpModule } from '@angular/http'
 import { WelcomeComponent} from './home/welcome.component';

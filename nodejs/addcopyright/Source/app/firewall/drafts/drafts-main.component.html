@@ -1,0 +1,41 @@
+<div [ngBusy]="{busy:[fetchSubscription, deleteSubscription, updateSubscription], message:'Loading...'}"></div>
+
+<vcns-selector (nsxManagerSelected)="onNsxManagerAvailable($event)"></vcns-selector>
+
+<app-drafts-grid [draftsList]="draftsList" (deleteDraft)="onDraftDelete($event)" (editDraft)="onDraftEdit($event)"></app-drafts-grid>
+
+
+<clr-modal [(clrModalOpen)]="editDialogOpened" [clrModalSize]="'md'">
+    <h3 class="modal-title">Edit Configuration</h3>
+    <div class="modal-body">
+        <form class="compact" [formGroup]="editDraftForm">
+            <section class="form-block">
+                <div class="form-group">
+                    <label for="aForm_1">Name</label>
+                    <label for="i1" aria-haspopup="true" role="tooltip" 
+                        class="tooltip tooltip-validation tooltip-sm tooltip-bottom-right" [ngClass]="{'invalid':!editDraftForm.get('name').valid}">
+                      <input type="text" id="i1" name="name" formControlName="name">
+                      <span class="tooltip-content">
+                          Draft name is required.
+                      </span>
+                  </label>
+                </div>
+                <div class="form-group">
+                    <label for="aForm_2">Description</label>
+                    <textarea name="" id="" cols="30" rows="3" formControlName="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="preserveConfigChk">
+                        <label for="preserveConfigChk">Preserve Configuration</label>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="editDialogOpened = false">Cancel</button>
+        <button type="submit" class="btn btn-primary" (click)="onEditFormSubmit()" [disabled]="!editDraftForm.valid">Ok</button>
+    </div>
+</clr-modal>

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-2" *ngFor="let card of cards">
+    <a class="card clickable" [routerLink]="card.route" [@flyInOut]="state">
+      <div class="card-header">
+        {{card.title}}
+      </div>
+      <div class="card-block">
+        <div class="card-media-block">
+          <div class="{{card.faClass}}" style="color:#007cbb; margin:0px auto;"></div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+

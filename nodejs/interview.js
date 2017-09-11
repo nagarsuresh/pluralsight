@@ -90,10 +90,10 @@ Car.prototype.constructor = Car;
 
 
 
-var ads = [{url:'a.gif', weight:50},{url:'b.gif', weight:25},{url:'c.gif', weight:25}];
+var ads = [{ url: 'a.gif', weight: 50 }, { url: 'b.gif', weight: 25 }, { url: 'c.gif', weight: 25 }];
 
-function findAd(ads){
-    
+function findAd(ads) {
+
     //return an ad 
 
 }
@@ -113,3 +113,11 @@ var ad = findAd(ads);
 
 
 
+for (var i = 0; i < 5; i++) {
+    setTimeout(
+        function (i) {
+            return function () {
+                console.log(i);
+            }
+        } (i), 500);
+}

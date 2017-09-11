@@ -1,0 +1,34 @@
+<div class="card">
+
+  <div class="card-block" *ngIf="processing">
+    <div class="progress top loop">
+      <progress></progress>
+    </div>
+  </div>
+
+
+  <div class="card-header">
+    {{displayName}}
+    <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg" *ngIf="description">
+      <clr-icon shape="info-circle" class="is-solid is-info"></clr-icon>
+      <span class="tooltip-content">{{description}}</span>
+    </a>
+  </div>
+  <form class="card-block compact">
+    <div class="form-block">
+      <div class="form-group" *ngFor="let status of statusList">
+        <label>{{status.label}}: </label>
+        <label>
+          <clr-icon shape="warning" class="is-warning is-solid" *ngIf="status.severity == 'warning'"></clr-icon>
+          <clr-icon shape="info-circle" class="is-success is-solid" *ngIf="status.severity == 'info'"></clr-icon>
+          <span [ngSwitch]="status.type">
+            <div *ngSwitchCase="'DATE'">
+              {{status.message | date:'yMdjm'}}
+            </div>
+            <div *ngSwitchDefault>{{status.message}}</div>
+          </span>
+          </label>
+      </div>
+    </div>
+  </form>
+</div>

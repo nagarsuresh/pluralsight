@@ -1,0 +1,59 @@
+<div *ngIf="showDrilldowngrid" class="">
+  <div class="card-block">
+    <clr-datagrid [clrDgLoading]="isLoading">
+      <clr-dg-column *ngFor="let column of columns">{{column.columnHeader}}</clr-dg-column>
+      <clr-dg-column *ngIf="hasDetails">Details</clr-dg-column>
+
+      <clr-dg-row *ngFor="let row of gridData">
+        <clr-dg-cell *ngFor="let column of columns">
+          <div [ngSwitch]="column.columnType">
+            <div *ngSwitchCase="'DATE'">{{row[column.columnHeader] | date:'yMdjm'}}</div>
+            <div *ngSwitchDefault>{{row[column.columnHeader]}}</div>
+          </div>
+        </clr-dg-cell>
+
+        <!--details link columns-->
+        <clr-dg-cell *ngIf="row['hasDetails']">
+          <a href="javascript:void(0)" (click)="onNestedDrilldown(row)">
+          Details
+          <clr-icon shape="caret" dir="right"></clr-icon>
+          </a>
+        </clr-dg-cell>
+
+      </clr-dg-row>
+
+      <clr-dg-footer></clr-dg-footer>
+    </clr-datagrid>
+  </div>
+</div>
+
+
+<div *ngIf="showNestedDrilldownGrid" class="">
+  <div class="card-header">
+    <button class="btn btn-primary btn-sm" (click)="onBack()">
+      <div class="fa fa-arrow-left"></div>
+        Go Back
+    </button>
+    {{nestedDrilldownTitle}}
+  </div>
+
+  <div class="card-block">
+
+    <clr-datagrid [clrDgLoading]="isNestedLoading">
+      <clr-dg-column *ngFor="let column of nestedColumns">{{column.columnHeader}}</clr-dg-column>
+
+      <clr-dg-row *ngFor="let row of nestedGridData">
+        <clr-dg-cell *ngFor="let column of nestedColumns">
+          <div [ngSwitch]="column.columnType">
+            <div *ngSwitchCase="'DATE'">{{row[column.columnHeader] | date:'yMdjm'}}</div>
+            <div *ngSwitchDefault>{{row[column.columnHeader]}}</div>
+          </div>
+        </clr-dg-cell>
+
+      </clr-dg-row>
+
+      <clr-dg-footer></clr-dg-footer>
+    </clr-datagrid>
+  </div>
+
+</div>
